@@ -1,63 +1,66 @@
-console.log('program Ruang Datar:')
-
-function segitigaSamaSisiAtas(jumlah){
-  for (var baris=jumlah;baris>0;baris--){
+/* Diamond
+var jumlah=6;
+var median=Math.round(jumlah/2);
+for(var baris=median-1; baris>=0; baris--){
   var bintang='';
-  for (var kolom=1; kolom<=jumlah;kolom++){
-    if(kolom>=baris){
-      bintang=bintang+' *';
+  for(var kolom=0; kolom <median; kolom++){
+    if(kolom<baris){
+    bintang=bintang+' ';
     }
-    else {
-      bintang=bintang+' ';
+    else{
+      bintang=bintang+'* ';
     }
   }console.log(bintang);
 }
+var sisa=jumlah-median
+if(sisa===median){
+  for(var x=0;x<sisa;x++){
+    var bintang='';
+    for(var y=0;y<sisa;y++){
+      if(y >= x){
+        bintang=bintang+'* ';
+      }
+      else {
+        bintang=bintang+'-';
+      }
+    }console.log(bintang);
+  }
 }
-function segitigaSamaSisiBawah(jumlah){
-    for (var i = 0; i < jumlah; i++) {
-      bintang='';
-     for (var j = 0; j < jumlah; j++) {
-       if(j>=i){
-         bintang=bintang+'* ';
-       }
-       else {
-         bintang=bintang+' ';
-       }
-     }console.log(bintang);
-    }
+else{
+  for(var x=0;x<sisa;x++){
+    var bintang=' ';
+    for(var y=0;y<sisa;y++){
+      if(y >= x){
+        bintang=bintang+'* ';
+      }
+      else {
+        bintang=bintang+'-';
+      }
+    }console.log(bintang);
+  }
 }
-function diamonds(jumlah){
-  var median=Math.round(jumlah/2);
-
-  for (i=median; i>0; i--){
-    bintang=''
-    for(j=1; j<=median;j++){
-      if(j>=i){
-        bintang=bintang+'* '
+*/
+var jumlah=6;
+var median=Math.round(jumlah/2);
+for(var baris=0; baris<median; baris++){
+  var bintang='';
+  for(var kolom=0; kolom<jumlah; kolom++){
+    bintang=bintang+'*';
+  }console.log(bintang);
+}
+for(var baris=0;baris<(jumlah-median);baris++){
+  if(baris === (jumlah-median)-1){
+    console.log(bintang);
+  }
+  else{
+    var bintang_bawah='';
+    for(var i=0; i<=bintang.length-1;i++){
+      if(i===0 || i===bintang.length-1){
+        bintang_bawah=bintang_bawah+'*'
       }
       else{
-        bintang= bintang+' '
+        bintang_bawah=bintang_bawah+' '
       }
-    }console.log(bintang)
+    }console.log(bintang_bawah);
+    }
   }
-  for (i=1; i<=jumlah-median;i++){
-    bintang=''
-    for (j=jumlah-median; j>0;j--){
-        if(j>=i){
-          bintang=bintang+'* '
-        }
-        else {
-          bintang=bintang+' ';
-        }
-    }console.log(bintang)
-  }
-}
-diamonds(5);
-/*(funtion(){
-  main=true
-  while (main===t
-  for (var j = 0; i < jumlah;j--) {
-    aSisiBawah(jumlah);
-  main=false
-  }
-})();*/
