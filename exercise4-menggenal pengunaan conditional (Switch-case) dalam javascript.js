@@ -36,6 +36,9 @@ switch(bulan){
   case 11 :
   console.log (hari+" November "+tahun);
   break;
+  case 12 :
+  console.log (hari+" Deseember "+tahun);
+  break;
   default :
-  console.log (hari+" Desember "+tahun);
+  console.log ("hari atau tanggal tidak valid");
 }

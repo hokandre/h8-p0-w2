@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .article{
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="tambahArticle()">Tambah</button>
+    <div class="content" id="content">
+      <div class="article">
+        <p>blalalalalala</p>
+      </div>
+    </div>
+    <script>
+    function tambahArticle(){
+      var content=document.getElementById('content');
+      var newArticle=document.createElement("DIV");
+      newArticle.setAttribute("id","Article2");
+      newArticle.setAttribute("class","article");
+      content.appendChild(newArticle);
+
+      var heading=document.createElement("H3");
+      var text_heading=prompt("Apa Judul Article?");
+      var text=document.createTextNode(text_heading);
+      heading.appendChild(text);
+      var isi=document.createElement("P");
+      var text_isi_prompt=prompt("Apa isi Article?");
+      var text_isi=document.createTextNode(text_isi_prompt);
+      isi.appendChild(text_isi);
+      newArticle.appendChild(heading);
+      newArticle.appendChild(isi);
+    }
+    </script>
+  </body>
+</html>
