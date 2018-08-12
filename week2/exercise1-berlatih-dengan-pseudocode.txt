@@ -1,0 +1,82 @@
+**1. Algorithm of total newton calculation
+1. Declare mass with integer 600
+2. declare acceleration with integer 2
+3. calculate sigmaF with mass times accelaration
+4. display sigmaF
+
+--psuedocode
+output : total sigmaF
+input : mass and Acceleration
+process: mass times acceleration
+
+STORE "mass" with integer value 600
+STORE "acceleration" with integer value2
+STORE "sigmaF" with value 0
+CALCULATE "mass" times "acceleration"
+SET "sigmaF" value with calculation result
+DISPLAY "sigmaF"
+
+
+
+**2. Algorithm of Kabisat year
+1. Declare year with any integer number
+2. if year modulo 4 has result is 0. do step 3, else Display  not kabisat.
+3. if year modulo 100 has result is not 0, Display kabisat. else do step 4.
+4. if year modulo 400 has result is 0, display  kabisat. else display not kabisat.
+
+--pseudocode
+output : Kabisat or not kabisat
+input : number of year
+process : modulo year with 4, 100, and 400.
+
+STORE "year" with any value number
+IF "year" mod 4 equals with  0 THEN
+	IF "year" mod 100 equals 1 THEN
+		DISPLAY "Kabisat"
+	ELSE IF "year" mod 400 equals with 0 THEN
+		DISPLAY "Kabisat"
+	ELSE THEN
+		DISPLAY "not Kabisat"
+	END IF
+ELSE  THEN
+	DISPLAY "not kabisat"
+END IF
+
+
+
+**3. Algorithm Laundry Day
+1. declare capacity with value number 0
+2. adding capacity by1
+3. display capacity
+3. set machine on if capacity is 20
+
+--pseudocode
+ouput : value capacity
+input : initial value capacity
+process: added value capacity with 1 in every looping
+
+STORE "capacity" with number 0
+WHILE "capacity" not equals 20 THEN
+	"capacity" added by 1
+	DISPLAY "capacity"
+END WHILE
+STORE "machine" with "on"
+
+**4. Algorithm nail Inspection
+1. declare numberStudent with value number 0
+2. adding numberStudent by 1
+2. checking nail of numberStudent, if nail is short display praise and if nail is long display punishment.
+
+--pseudocode
+
+
+STORE "numberStudent" with number 0
+WHILE "numberStudent" not equals 40 THEN
+	"numberStudent" adding by 1
+	IF "claw" equals "long" THEN
+		DISPLAY "Punishment"
+	ELSE THEN
+		DISPLAY "praise"
+	END IF
+
+END WHILE
