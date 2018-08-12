@@ -19,7 +19,7 @@ function pasanganTerbesar(num) {
       coupleMax=banding;
     }
   }
-  return coupleMax;
+  return Number(coupleMax);
 }
 
 // TEST CASES
