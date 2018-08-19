@@ -6,6 +6,8 @@ function cariModus(arr) {
   3. return nilai index dari max
   */
   //jumlah
+
+
   var jumlah=[]
   var modus=arr[0];
   for(var i=0;i<arr.length;i++){
@@ -18,7 +20,8 @@ function cariModus(arr) {
     jumlah.push(jumlahTemp);
 
   }
-
+  console.log(arr);
+  console.log(jumlah);
 
    //cek sama
   var sama=false;
@@ -34,6 +37,8 @@ function cariModus(arr) {
   if(sama===true){
     return -1;
   }
+  console.log(sama);
+
 
   //indeks nilai maksimal
   var maks=jumlah[0];
@@ -47,13 +52,11 @@ function cariModus(arr) {
 
   return arr[index];
 
-
-
 }
 
 // TEST CASES
 console.log(cariModus([10, 4, 5, 2, 4])); // 4
-console.log(cariModus([5, 10, 10, 6, 5])); // 5
-console.log(cariModus([10, 3, 1, 2, 5])); // -1
-console.log(cariModus([1, 2, 3, 3, 4, 5])); // 3
-console.log(cariModus([7, 7, 7, 7, 7])); // -1
+//console.log(cariModus([5, 10, 10, 6, 5])); // 5
+//console.log(cariModus([10, 3, 1, 2, 5])); // -1
+//console.log(cariModus([1, 2, 3, 3, 4, 5])); // 3
+//console.log(cariModus([7, 7, 7, 7, 7])); // -1
