@@ -78,9 +78,13 @@ function dataHandling2(input){
   console.log(split);
 
   /* Join Elemenet pada array split dan ditampung pada variabel date*/
-  var date=split.join("-");
-  console.log(date);
 
+  var date=split;
+  temp=date[0]
+  date[0]=date[1]
+  date[1]=date[2]
+  date[2]=temp
+  console.log(date.join("-"))
   /* membatasi input */
     input[1]=input[1].slice(0,15);
     console.log(input[1]);
@@ -97,3 +101,12 @@ function dataHandling2(input){
 */
 var input=["0001", "Roman Alamsyah", "Bandar Lampung", "21/05/1989", "Membaca"];
 dataHandling2(input);
+/**
+ * keluaran yang diharapkan (pada console)
+ *
+ * ["0001", "Roman Alamsyah Elsharawy", "Provinsi Bandar Lampung", "21/05/1989", "Pria", "SMA Internasional Metro"]
+ * Mei
+ * ["1989", "21", "05"]
+ * 21-05-1989
+ * Roman Alamsyah
+ */

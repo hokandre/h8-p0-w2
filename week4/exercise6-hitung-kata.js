@@ -25,10 +25,13 @@ function hitungHuruf(kata) {
   var jumlah=[];
   for(var i=0; i<kataBaru.length;i++){
     var temp=0;
+    var batas=0;
     for(var j=0;j<kataBaru[i].length;j++){
       for(var k=0;k<kataBaru[i].length;k++){
-        if(kataBaru[i][j]===kataBaru[i][k] && j !== k ){
+        if(kataBaru[i][j]===kataBaru[i][k] && j !== k){
           temp=temp+1
+          batas++
+          break;
         }
       }
     }
