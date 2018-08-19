@@ -9,28 +9,50 @@ function countProfit(shoppers) {
     //1. initial object
     for(var i=0;i<listBarang.length;i++){
         result.push({
-            product=listBarang[i][0]
+         product : listBarang[i][0],
+         shoppers:[],
+         leftOver:listBarang[i][2],
+         totalProfit:0
         });
     }
     //3. bandngkan product
     for (var i=0;i<shoppers.length;i++){
-        var namaPembeli=shoppers[i][0]
-        var product=shoppers[i][1]
-        var amount=shoppers[i][2]
+        var namaPembeli=shoppers[i]['name']
+        var productDibeli=shoppers[i]['product']
+        var amount=shoppers[i]['amount']
+        var ketemu=false;
         for(var j=0;j<listBarang.length;j++){
-            var kodeBarang=listBarang[j][0]
+            var namaBarang=listBarang[j][0]
             var harga=listBarang[j][1]
-            var stock=listBarang[j][3];
+            var stock=listBarang[j][2]
             var sisa=0;
-            if(product===kodeBarang && amount<=stock){
-                var profit=amount*harga;
-                sisa=stock-amount;
-                listBarang[j][3]=sisa;
-                var pembelian={
-                    product=kodeBarang,
-                    name=namaPembeli,
-                    leftOver=sisa,
-                    totalProfit=profit
+           if(productDibeli===namaBarang && amount<=stock){
+            ketemu=true
+            var profit=amount*harga
+            sisa=stock-amount 
+            listBarang[j][2]=sisa
+            var pembelian={
+                name: namaPembeli,
+                product: namaBarang,
+                leftOver: sisa,
+                totalProfit :profit
+            }
+           }
+        }
+
+        if(ketemu=true){
+            for(var k=0;k<result.length;k++){
+                if(result[k]['product']===pembelian.product){
+                    result[k]['shoppers'].push(pembelian.name);
+                    result[k]['totalProfit']=result[k]['totalProfit']+pembelian.totalProfit
+                    result[k]['leftOver']=pembelian.leftOver
+                    pembelian={
+                        name:'',
+                        product:'',
+                        leftOver:0,
+                        totalProfit :0
+                    }
+                    
                 }
             }
         }
@@ -58,7 +80,7 @@ function countProfit(shoppers) {
   //   leftOver: 1,
   //   totalProfit: 0 } ]
   
-  console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 8}, {name: 'Vanessa', product: 'Sepatu Stacattu', amount: 10}, {name: 'Rani', product: 'Sweater Uniklooh', amount: 1}, {name: 'Devi', product: 'Baju Zoro', amount: 1}, {name: 'Lisa', product: 'Baju Zoro', amount: 1}]));
+  //console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 8}, {name: 'Vanessa', product: 'Sepatu Stacattu', amount: 10}, {name: 'Rani', product: 'Sweater Uniklooh', amount: 1}, {name: 'Devi', product: 'Baju Zoro', amount: 1}, {name: 'Lisa', product: 'Baju Zoro', amount: 1}]));
   // [ { product: 'Sepatu Stacattu',
   //     shoppers: [ 'Windi' ],
   //     leftOver: 2,
@@ -71,7 +93,7 @@ function countProfit(shoppers) {
   //     shoppers: [ 'Rani' ],
   //     leftOver: 0,
   //     totalProfit: 175000 } ]
-  console.log(countProfit([{name: 'Windi', product: 'Sepatu Naiki', amount: 5}]));
+  //console.log(countProfit([{name: 'Windi', product: 'Sepatu Naiki', amount: 5}]));
   // [ { product: 'Sepatu Stacattu',
   //     shoppers: [],
   //     leftOver: 10,
@@ -84,4 +106,4 @@ function countProfit(shoppers) {
   //     shoppers: [],
   //     leftOver: 1,
   //     totalProfit: 0 } ]
-  console.log(countProfit([])); //[]
+  //console.log(countProfit([])); //[]

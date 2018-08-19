@@ -27,13 +27,14 @@ function hitungHuruf(kata) {
     var temp=0;
     for(var j=0;j<kataBaru[i].length;j++){
       for(var k=0;k<kataBaru[i].length;k++){
-        if(kataBaru[i][j]===kataBaru[i][k] && j !== k){
+        if(kataBaru[i][j]===kataBaru[i][k] && j !== k ){
           temp=temp+1
         }
       }
     }
     jumlah.push(temp/2);
   }
+  console.log(jumlah);
 
   //3. mecari indeks maks
   var maks=jumlah[0]
@@ -49,8 +50,8 @@ function hitungHuruf(kata) {
 }
 
 // TEST CASES
-console.log(hitungHuruf('Today, is the greatest day ever')); // greatest
+//console.log(hitungHuruf('Today, is the greatest day ever')); // greatest
 console.log(hitungHuruf('I am a passionate developer')); // passionate
-console.log(hitungHuruf('aku adalah anak gembala')); // adalah
-console.log(hitungHuruf('rajin pangkal kaya')); // pangkal
-console.log(hitungHuruf('mengayuh perahu di danau')); // danau
+//console.log(hitungHuruf('aku adalah anak gembala')); // adalah
+//console.log(hitungHuruf('rajin pangkal kaya')); // pangkal
+//console.log(hitungHuruf('mengayuh perahu di danau')); // danau
