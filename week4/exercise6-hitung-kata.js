@@ -20,50 +20,52 @@ function hitungHuruf(kata) {
     }
   }
   kataBaru.push(temp);
-
+  
   //2.hitungjumlahperulangan
-  var jumlah=[];
-  for(var i=0; i<kataBaru.length;i++){
-    var count=0;
-    var ketemu=false;
-    for(var j=0;j<kataBaru[i].length;j++){
-      var lewati =[];
-      for(var check=0; check<lewati.length;check++){
-        if(j===lewati[check]){
-          j=j+1
-          break;
-        }
-      }
-      for(var k=0;k<kataBaru[i].length;k++){
-        if(kataBaru[i][j]===kataBaru[i][k] && j !== k){
-          ketemu=true;
-          lewati.push(k);
-        }
-      }
-    }
-    if(ketemu===true){
-      count++
-    }
-    jumlah.push(count);
-  }
-  console.log(jumlah);
+  var objectKata={};
+  for(var i=0;i<kataBaru.length;i++){
+    var name=kataBaru[i]
+    if(objectKata[name]===undefined){
+      objectKata[name] ={
 
-  //3. mecari indeks maks
-  var maks=jumlah[0]
-  var index=0;
-  for(var i=1;i<jumlah.length;i++){
-    if(jumlah[i]>maks){
-      maks=jumlah[i]
-      index=i
+      }
+     }
+    for(var j=0;j<name.length;j++){
+      var ketemu=false
+      for(var k=0;k<name.length;k++){
+        if(kataBaru[i][j]===kataBaru[i][k] && j !== k ){
+          ketemu=true
+        }
+      }
+      if(ketemu===true){
+        if(objectKata[name][kataBaru[i][j]]===undefined){
+          objectKata[name][kataBaru[i][j]]=1
+        }
+      }
     }
+    
   }
-  return kataBaru[index];
+  console.log(objectKata)
+  //cari maximum
+  var keys=Object.keys(objectKata);
+  var kata=keys[0]
+  var max=Object.keys(objectKata[keys[0]]).length;
+  for(var i=1;i<keys.length;i++){
+    var leng=Object.keys(objectKata[keys[i]]).length;
+    if(leng>max){
+      max=leng
+      kata=keys[i]
+    }
+    
+  }
+
+  return kata;
 
 }
 
 // TEST CASES
-//console.log(hitungHuruf('Today, is the greatest day ever')); // greatest
+console.log(hitungHuruf('Today, is the greatest day ever')); // greatest
 console.log(hitungHuruf('I am a passionate developer')); // passionate
-//console.log(hitungHuruf('aku adalah anak gembala')); // adalah
-//console.log(hitungHuruf('rajin pangkal kaya')); // pangkal
-//console.log(hitungHuruf('mengayuh perahu di danau')); // danau
+console.log(hitungHuruf('aku adalah anak gembala')); // adalah
+console.log(hitungHuruf('rajin pangkal kaya')); // pangkal
+console.log(hitungHuruf('mengayuh perahu di danau')); // danau
