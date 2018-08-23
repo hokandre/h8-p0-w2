@@ -58,7 +58,7 @@ function hitungHuruf(kata) {
     }
     
   }
-
+  
   return kata;
 
 }

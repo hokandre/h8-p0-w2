@@ -15,7 +15,6 @@ function changeVocals (str) {
             ketemu=false;
             for(var j=0;j<vokalLower.length;j++){
                 //lower
-                console.log(j)
                 if(char===vokalLower[j]){
                     ketemu=true;
                     result=result+hasilDiubahLower[j]
@@ -49,7 +48,6 @@ function changeVocals (str) {
   
   function setLowerUpperCase (str) {
     //code di sini
-    console.log(str)
     var kamusLower='abcdefghijklmnopqrstuvwxyz'
     var kamusUpper=kamusLower.toUpperCase();
     var result=''

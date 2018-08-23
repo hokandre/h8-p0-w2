@@ -1,32 +1,43 @@
 function sorting(arrNumber) {
     // code di sini
-    for(var i=0;i<arrNumber.length;i++){
-        for(var j=0;j<arrNumber.length-1;j++){
-            if(arrNumber[j]<arrNumber[j+1]){
-                temp=arrNumber[j]
-                arrNumber[j]=arrNumber[j+1];
-                arrNumber[j+1]=temp
+    if(arrNumber.length===0){
+        return "";
+    }
+    else{
+        for(var i=0;i<arrNumber.length;i++){
+            for(var j=0;j<arrNumber.length-1;j++){
+                if(arrNumber[j]<arrNumber[j+1]){
+                    temp=arrNumber[j]
+                    arrNumber[j]=arrNumber[j+1];
+                    arrNumber[j+1]=temp
+                }
+    
             }
-
         }
     }
+   
     return arrNumber
   }
   
   function getTotal(arrNumber) {
     // code di sini
-    var maks=arrNumber[0];
-    for(var i=1;i<arrNumber.length;i++){
-        if(arrNumber[i]>maks){
-            maks=arrNumber[i]
+    if(arrNumber.length===0){
+        return "";
+    }else{
+        var maks=arrNumber[0];
+        for(var i=1;i<arrNumber.length;i++){
+            if(arrNumber[i]>maks){
+                maks=arrNumber[i]
+            }
+        }
+        var count=0;
+        for(var i=0;i<arrNumber.length;i++){
+            if(arrNumber[i]===maks){
+                count++
+            }
         }
     }
-    var count=0;
-    for(var i=0;i<arrNumber.length;i++){
-        if(arrNumber[i]===maks){
-            count++
-        }
-    }
+
     return "Angka paling besar adalah "+maks+" jumlah kemunculan sebanyak "+count+" kali"
 
   }
