@@ -24,18 +24,27 @@ function hitungHuruf(kata) {
   //2.hitungjumlahperulangan
   var jumlah=[];
   for(var i=0; i<kataBaru.length;i++){
-    var temp=0;
-    var batas=0;
+    var count=0;
+    var ketemu=false;
     for(var j=0;j<kataBaru[i].length;j++){
-      for(var k=0;k<kataBaru[i].length;k++){
-        if(kataBaru[i][j]===kataBaru[i][k] && j !== k){
-          temp=temp+1
-          batas++
+      var lewati =[];
+      for(var check=0; check<lewati.length;check++){
+        if(j===lewati[check]){
+          j=j+1
           break;
         }
       }
+      for(var k=0;k<kataBaru[i].length;k++){
+        if(kataBaru[i][j]===kataBaru[i][k] && j !== k){
+          ketemu=true;
+          lewati.push(k);
+        }
+      }
     }
-    jumlah.push(temp/2);
+    if(ketemu===true){
+      count++
+    }
+    jumlah.push(count);
   }
   console.log(jumlah);
 
