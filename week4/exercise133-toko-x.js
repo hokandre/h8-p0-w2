@@ -6,7 +6,11 @@ function countProfit(shoppers) {
     //deklarasi
     var result=[];
     var format=['product','shoper','leftOver','totalProfit'];
-    //1. initial object
+    if(shoppers.length===0){
+        return [];
+    }
+    else{
+          //1. initial object
     for(var i=0;i<listBarang.length;i++){
         result.push({
          product : listBarang[i][0],
@@ -38,9 +42,10 @@ function countProfit(shoppers) {
                 totalProfit :profit
             }
            }
+           
         }
-
-        if(ketemu=true){
+        
+        if(ketemu===true){
             for(var k=0;k<result.length;k++){
                 if(result[k]['product']===pembelian.product){
                     result[k]['shoppers'].push(pembelian.name);
@@ -58,7 +63,9 @@ function countProfit(shoppers) {
         }
 
     }
-    //console.log(result);
+    }
+  
+
 
 
   
@@ -93,7 +100,7 @@ function countProfit(shoppers) {
   //     shoppers: [ 'Rani' ],
   //     leftOver: 0,
   //     totalProfit: 175000 } ]
-  console.log(countProfit([{name: 'Windi', product: 'Sepatu Naiki', amount: 5}]));
+  //console.log(countProfit([{name: 'Windi', product: 'Sepatu Naiki', amount: 5}]));
   // [ { product: 'Sepatu Stacattu',
   //     shoppers: [],
   //     leftOver: 10,
@@ -106,4 +113,4 @@ function countProfit(shoppers) {
   //     shoppers: [],
   //     leftOver: 1,
   //     totalProfit: 0 } ]
-  //console.log(countProfit([])); //[]
+  console.log(countProfit([])); //[]
