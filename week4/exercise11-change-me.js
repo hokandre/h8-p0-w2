@@ -5,27 +5,26 @@ function changeMe(arr) {
     var date =new Date();
     var year=date.getFullYear();
     for(var i=0;i<arr.length;i++){
-        var name=i+1+". "+arr[i][0]+" "+arr[i][1]
-        result[name]={};
         for(var j=0;j<format.length;j++){
             if(format[j]==='Age'){
                 
                 if(arr[i][j]===undefined || arr[i][j]>year ){
                     var age="invalid Birth Year"
-                    result[name][format[j]]=age;
+                    result[format[j]]=age;
                 }
                 else{
                     var age=year-arr[i][3];
-                    result[name][format[j]]=age;
+                    result[format[j]]=age;
                 }
                 
             }
             else{
-                result[name][format[j]]=arr[i][j]
+                result[format[j]]=arr[i][j]
             }
         }
+        console.log(i+1, result["firstName"]+" "+result["lastName"] )
+        console.log(result);
     }
-    console.log(result);
     
   }
   
