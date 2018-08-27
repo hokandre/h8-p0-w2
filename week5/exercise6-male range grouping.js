@@ -21,11 +21,14 @@ function meleeRangedGrouping (str) {
     var result=[];
     var hasilSplit=split(str,",")
     
-    var tipe=[];
-    if(hasilSplit.length===0){
+    var tipe=['Ranged','Melee'];
+    if(str.length===0){
         return [];
     }
     else{
+        for(var z=0;z<tipe.length;z++){
+            result.push([]);
+        }
         for(var i=0;i<hasilSplit.length;i++){
             //1. cari index dari "-" dalam setiap elemen hasil split
             var index;
@@ -37,27 +40,7 @@ function meleeRangedGrouping (str) {
                 }
             }
             //2. mendapatkan nilai tipe hero
-            var tipeHero=hasilSplit[i].substring(index);
-    
-            //3. memasukan tipe hero pada array tipe
-            if(tipe.length===0){
-                tipe.push(tipeHero);
-                result.push([]);
-            }
-            else{
-                //cek tipe apakah sudah ada 
-                var isThere=false
-                for(var k=0;k<tipe.length;k++){
-                    if(tipe[k]===tipeHero){
-                        isThere=true;
-                        break;
-                    }
-                }
-                if(isThere===false){
-                    result.push([]);
-                    tipe.push(tipeHero);
-                }
-            }
+            var tipeHero=hasilSplit[i].substring(index+1);
             //4. membandingkan tipe hero pada inputan dengan tipe hero pada array tipe
             for(var k=0;k<tipe.length;k++){
                 if(tipeHero===tipe[k]){
