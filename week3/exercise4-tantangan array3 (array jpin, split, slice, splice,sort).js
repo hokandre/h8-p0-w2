@@ -9,8 +9,7 @@ function dataHandling2(input){
   /* memisahkan dan menyimpan data tanggal pada array input ke dalam array split
   dengan menggunakan fungsi split()*/
   var split=input[3].split("/");
-  //menampilakan nama bulan
-  console.log("switch Case:");
+  //menampilakan nama bulans
   switch (split[1]) {
     case "01":{
         console.log(" januari ");
