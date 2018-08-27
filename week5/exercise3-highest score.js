@@ -24,8 +24,8 @@ function highestScore (students) {
             else{
             //jika kelas sudah ada
                 if(nilai>result[kelas].score){
-                    result[j].name = students[i].name
-                    result[j].score= students[i].score
+                    result[keys[j]].name = students[i].name
+                    result[keys[j]].score= students[i].score
                 }
             }
         }
@@ -62,7 +62,8 @@ function highestScore (students) {
   //   foxes: { name: 'Dimitri', score: 90 },
   //   wolves: { name: 'Alexei', score: 85 }
   // }
-  
+
+  /*
   
   console.log(highestScore([
     {
@@ -99,4 +100,4 @@ function highestScore (students) {
   // }
   
   
-  console.log(highestScore([])); //{}   
+  console.log(highestScore([])); //{}  */
