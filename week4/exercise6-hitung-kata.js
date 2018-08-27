@@ -45,7 +45,6 @@ function hitungHuruf(kata) {
     }
     
   }
-  console.log(objectKata)
   //cari maximum
   var keys=Object.keys(objectKata);
   var kata=keys[0]
