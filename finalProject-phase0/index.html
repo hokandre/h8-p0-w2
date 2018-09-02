@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home | Kopi B*jo</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+            background-color: #f4f4f4   
+        }
+        /*global */
+        .container{
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .order{
+            background-color: aliceblue;
+            max-width: 232px;
+            position: relative;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+        .image-order{
+            float: right;
+            width: 25px;
+        }
+
+        /*header*/
+        header{
+            padding-top: 15px;
+            width: 100%;
+            min-height: 100px;
+            background-color: #f4f4f4;
+            border-bottom: 3px solid black;
+        }
+        header img{
+            width: 100px;
+            float: left;
+        }
+        header h1{
+            color: #8B4513;
+            text-align: center;
+        }
+
+
+        /*section */
+        #menu-order{
+            margin-top: 20px;
+            padding: 10px; 
+            background-color: #8B4513
+        }
+        /*menu*/
+        #menu-order #menu,#list-order{
+            float: left;
+            width: 40%;
+            border: 1px solid black;
+            padding: 15px;
+            min-height: 300px;
+            background-color: #CD853F;
+        }
+        #menu-order #menu h2{
+            text-align: center;
+            color: white;
+            border-bottom: 3px solid black;
+        }
+        #menu-order #menu input[type="text"]{
+            padding:10px 0;
+            width: 100%; 
+        }
+        #menu-order #menu button{
+            margin-top: 5px;
+            padding:10px 0;
+            width: 100%;
+            background-color: #32CD32;
+            border: 0; 
+            border-radius: 10%;
+            color: white;
+        }
+
+        /*order*/
+        #menu-order #list-order{
+            float: right;
+        }
+        #menu-order #list-order h2{
+            text-align: center;
+            color: white;
+            border-bottom: 3px solid black;
+        }
+        #menu-order #list-order #order-1 img{
+            float: right;
+        }   
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="img/coffe.jpg" alt="kopi Bejo">
+            <h1>Kopi B*jo</h1>
+        </div>
+    </header>
+
+    <!-- Menu dan Order-->
+    <section id="menu-order">
+        <div class="container">
+                <div id="menu">
+                    <h2>Menu</h2>
+                    <form id="formOrder">
+                        <div id="capucino">
+                            <h3>Capucino</h3>
+                            <input type="checkbox" class="checkbox" id="capucino-m" value="capucino-M"> capucino-M <br>
+                            <input type="checkbox" class="checkbox" id="capucino-L" value="capucino-L"> capucino-L <br>
+                        </div>
+                        <div id="moca">
+                            <h3>Moca</h3>
+                            <input type="checkbox" class="checkbox" id="moca-m" value=" moca-M"> moca-M <br>
+                            <input type="checkbox" class="checkbox" id="moca-L" value=" moca-L"> moca-L<br>
+                        </div>
+
+                        <input type="text" id="nama-pelanggan" placeholder="Nama Pelanggan...">
+                        <button type="button" id="button-order" onclick="order()">Order!!!</button>
+                    </form>
+                </div>
+            
+                <div id="list-order">
+                    <h2>List Order</h2>
+                    <!--<div class="order "id="1">
+                        <input type="checkbox"> Andre.h
+                        <img src="img/plus.png" class="image-order" alt="plus" title="Expand">
+                    </div>-->
+                </div>
+        </div>    
+    </section>
+</body>
+<script>
+var transaction=[];
+
+
+var num=0
+function order(){
+    var costumer={
+        name : '',
+        order: []
+    }
+
+    var nameCostumer = document.getElementById("nama-pelanggan");
+    costumer.name=nameCostumer.value;
+    var form=document.getElementById("formOrder");
+    var checkbox=form.getElementsByClassName("checkbox");
+    for(var i=0;i<checkbox.length;i++){
+        if(checkbox[i].checked===true){
+            costumer.order.push(checkbox[i].value)
+        }
+    }
+
+    var newDiv = document.createElement("div")
+    //list-order
+    var list_order= document.getElementById("list-order");
+    //isi div
+    var childDiv=list_order.getElementsByTagName('div');
+    //set id newDiv
+    newDiv.setAttribute("id","o"+(num+1));
+    newDiv.setAttribute("class","order");
+
+    //checkbox
+    var newCheckBox= document.createElement("input");
+    newCheckBox.setAttribute("type","checkbox");
+    newCheckBox.setAttribute("class","checkbox-order");
+    newCheckBox.setAttribute("value",costumer.name);
+    newCheckBox.setAttribute("id","c"+(childDiv.length+1));
+    var newlabel = document.createElement("label");
+    newlabel.htmlFor="c"+(childDiv.length+1);
+    newlabel.value=costumer.name;
+    newlabel.innerHTML=costumer.name;
+    newCheckBox.appendChild(newlabel);
+    newDiv.appendChild(newCheckBox);
+    newDiv.appendChild(newlabel)
+
+    //image
+    var newImage = document.createElement("IMG");
+    newImage.setAttribute("src","img/plus.png");
+    newImage.setAttribute("class","image-order");
+    newImage.setAttribute("id",num+1);
+    num=num+1;
+    newImage.setAttribute("onclick","expand(this.id)");
+    newDiv.appendChild(newImage);
+    transaction.push(costumer);
+    list_order.appendChild(newDiv);
+}
+
+function expand(id){
+    var newDiv=document.createElement("div");
+    newDiv.setAttribute("id","e"+id);
+    var order=transaction[id-1].order
+    for(var i=0;i<order.length;i++){
+            var label=document.createElement("label");
+            label.setAttribute("style","display:block;");
+            var description=document.createTextNode(i+1+" "+order[i]);
+            label.appendChild(description);
+            newDiv.appendChild(label);
+        }
+    var node=document.getElementById("o"+id)
+    node.appendChild(newDiv);
+
+    var button=document.createElement("button");
+    button.setAttribute("id",id)
+    var des=document.createTextNode("hide");
+    button.appendChild(des);
+    button.setAttribute("onclick","toogle('e'+id)");
+    newDiv.appendChild(button)
+}
+function toogle(id_element){
+    var element=document.getElementById(id_element);
+        element.style.display='none'
+}
+</script>
+</html>
